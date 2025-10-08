@@ -158,9 +158,38 @@
     </section>
     <br><br><br>
     <section id="Projectos" class="Projectos">
-      <h2 class="projectos-titulo">Meus Projectos</h2>
+    <!-- Botão para abrir o modal de adicionar projeto -->
+    <button id="addProjectBtn" style="position:fixed;top:20px;right:20px;z-index:1000;">Adicionar Projeto</button>
 
-      <div class="projectos-caixa">
+    <!-- Modal de cadastro de projeto -->
+    <div id="addProjectModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center;">
+      <div style="background:#fff;padding:32px 28px 24px 28px;border-radius:16px;max-width:420px;width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;display:flex;flex-direction:column;gap:16px;">
+        <h2 style="margin-bottom:8px;text-align:center;color:#222;font-size:1.5rem;">Adicionar Projeto</h2>
+        <form id="projectForm" style="display:flex;flex-direction:column;gap:12px;">
+          <label style="font-weight:500;color:#444;">Nome do Projeto:</label>
+          <input type="text" id="projectName" required style="padding:8px;border-radius:6px;border:1px solid #ccc;">
+
+          <label style="font-weight:500;color:#444;">Descrição:</label>
+          <textarea id="projectDesc" required style="padding:8px;border-radius:6px;border:1px solid #ccc;resize:vertical;"></textarea>
+
+          <label style="font-weight:500;color:#444;">Imagem do Projeto:</label>
+          <input type="file" id="projectImgFile" accept="image/*" style="padding:4px;">
+          <img id="previewImg" src="" alt="Prévia da imagem" style="display:none;max-width:100%;margin-top:6px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+          <label style="font-weight:500;color:#444;">Link do Projeto:</label>
+          <input type="text" id="projectLink" required style="padding:8px;border-radius:6px;border:1px solid #ccc;">
+
+          <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:10px;">
+            <button type="submit" style="background:#007bff;color:#fff;padding:8px 18px;border:none;border-radius:6px;cursor:pointer;font-weight:500;">Adicionar</button>
+            <button type="button" id="closeModalBtn" style="background:#eee;color:#333;padding:8px 18px;border:none;border-radius:6px;cursor:pointer;">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <h2 class="projectos-titulo">Meus Projectos</h2>
+
+    <div class="projectos-caixa">
         <div class="projectos-card" onclick="openModal('modal1')">
           <img
             src="img/projeto4.png"
@@ -329,11 +358,6 @@
             <li>Sistema de aprovação em fluxo</li>
             <li>Relatórios detalhados</li>
           </ul>
-          
-          <div class="modal-buttons">
-            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
-            <a href="#" class="btn-code" target="_blank">Ver Código</a>
-          </div>
         </div>
       </div>
     </div>
@@ -363,11 +387,6 @@
             <li>Relatórios acadêmicos</li>
             <li>Comunicação entre escola e pais</li>
           </ul>
-          
-          <div class="modal-buttons">
-            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
-            <a href="#" class="btn-code" target="_blank">Ver Código</a>
-          </div>
         </div>
       </div>
     </div>
@@ -410,7 +429,6 @@
           
           <p><strong>Tecnologias utilizadas:</strong></p>
           <ul>
-            <li>Vue.js</li>
             <li>Node.js com Express</li>
             <li>PostgreSQL</li>
             <li>Stripe para pagamentos</li>
@@ -426,10 +444,6 @@
             <li>Sistema de pagamento integrado</li>
           </ul>
           
-          <div class="modal-buttons">
-            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
-            <a href="#" class="btn-code" target="_blank">Ver Código</a>
-          </div>
         </div>
       </div>
     </div>
@@ -460,10 +474,6 @@
             <li>Programa de fidelidade</li>
           </ul>
           
-          <div class="modal-buttons">
-            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
-            <a href="#" class="btn-code" target="_blank">Ver Código</a>
-          </div>
         </div>
       </div>
     </div>
@@ -494,10 +504,6 @@
             <li>Rede social interna</li>
           </ul>
           
-          <div class="modal-buttons">
-            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
-            <a href="#" class="btn-code" target="_blank">Ver Código</a>
-          </div>
         </div>
       </div>
     </div>
@@ -522,46 +528,99 @@
         window.open(url, "_blank");
       }
 
-      // Funções para controlar os modais
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.style.display = 'block';
-          document.body.style.overflow = 'hidden'; // Previne scroll do body
-        }
-      }
+      // Modal de adicionar projeto melhorado
+      const addProjectBtn = document.getElementById('addProjectBtn');
+      const addProjectModal = document.getElementById('addProjectModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const projectForm = document.getElementById('projectForm');
+      const projectImgFile = document.getElementById('projectImgFile');
+      const previewImg = document.getElementById('previewImg');
 
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.style.display = 'none';
-          document.body.style.overflow = 'auto'; // Restaura scroll do body
-        }
-      }
+      addProjectBtn.onclick = function() {
+        addProjectModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      };
 
-      // Fechar modal clicando fora dele
+      closeModalBtn.onclick = function() {
+        addProjectModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        previewImg.style.display = 'none';
+        previewImg.src = '';
+      };
+
       window.onclick = function(event) {
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach(modal => {
-          if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-          }
-        });
-      }
+        if (event.target === addProjectModal) {
+          addProjectModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          previewImg.style.display = 'none';
+          previewImg.src = '';
+        }
+      };
 
-      // Fechar modal com a tecla ESC
       document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          const modals = document.querySelectorAll('.modal');
-          modals.forEach(modal => {
-            if (modal.style.display === 'block') {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }
-          });
+        if (event.key === 'Escape' && addProjectModal.style.display === 'flex') {
+          addProjectModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          previewImg.style.display = 'none';
+          previewImg.src = '';
         }
       });
+
+      // Preview da imagem
+      projectImgFile.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            previewImg.src = ev.target.result;
+            previewImg.style.display = 'block';
+          };
+          reader.readAsDataURL(file);
+        } else {
+          previewImg.style.display = 'none';
+          previewImg.src = '';
+        }
+      };
+
+      // Adicionar projeto dinamicamente com imagem
+      projectForm.onsubmit = function(e) {
+        e.preventDefault();
+        const name = document.getElementById('projectName').value;
+        const desc = document.getElementById('projectDesc').value;
+        const link = document.getElementById('projectLink').value;
+        let imgSrc = '';
+        if (projectImgFile.files[0]) {
+          imgSrc = previewImg.src;
+        } else {
+          imgSrc = 'img/bg.png'; // imagem padrão se não enviar
+        }
+
+        // Cria o card do projeto
+        const card = document.createElement('div');
+        card.className = 'projectos-card';
+        card.innerHTML = `
+          <a href="${link}" target="_blank">
+            <img src="${imgSrc}" alt="${name}" class="projecto-imagem" />
+          </a>
+          <div class="caixa-texto-projectos">
+            <h3 class="info-projectos">${name}</h3>
+            <p class="paragrafo-projectos">${desc}</p>
+          </div>
+        `;
+
+        // Adiciona o card na primeira caixa de projetos
+        const caixas = document.getElementsByClassName('projectos-caixa');
+        if (caixas.length > 0) {
+          caixas[0].prepend(card);
+        }
+
+        // Limpa e fecha o modal
+        projectForm.reset();
+        addProjectModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        previewImg.style.display = 'none';
+        previewImg.src = '';
+      };
     </script>
   </body>
   <footer class="footer">
