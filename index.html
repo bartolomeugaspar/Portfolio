@@ -161,7 +161,7 @@
       <h2 class="projectos-titulo">Meus Projectos</h2>
 
       <div class="projectos-caixa">
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal1')">
           <img
             src="img/projeto4.png"
             alt="projecto 4"
@@ -175,7 +175,7 @@
           </div>
         </div>
 
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal2')">
           <img
             src="img/projeto5.png"
             alt="projecto 2"
@@ -188,17 +188,16 @@
           </div>
         </div>
 
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal3')">
           <img
-            src="img/projeto3.png"
+            src="img/projeto6.png"
             alt="projecto 3"
             class="projecto-imagem"
           />
           <div class="caixa-texto-projectos">
-            <h3 class="info-projectos">Sistema de Administração de Igreja</h3>
+            <h3 class="info-projectos">Sistema de Gestão de Cardápio</h3>
             <p class="paragrafo-projectos">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque
-              nam illum eligendi similique eius laudantium.
+            Aplicação voltada à administração de cardápios, com funcionalidades para cadastro de pratos, gestão de ingredientes e atualização automática de valores. Projetado para oferecer eficiência e praticidade em restaurantes e cantinas.Permite uma administração prática e organizada de menus em tempo real.
             </p>
           </div>
         </div>
@@ -207,7 +206,7 @@
       <br /><br />
 
       <div class="projectos-caixa">
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal4')">
           <img
             src="img/projeto1.png"
             alt="projecto 1"
@@ -222,7 +221,7 @@
           </div>
         </div>
 
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal5')">
           <img
             src="img/projeto2.png"
             alt="projecto 2"
@@ -237,7 +236,7 @@
           </div>
         </div>
 
-        <div class="projectos-card">
+        <div class="projectos-card" onclick="openModal('modal6')">
           <img
             src="img/r.png"
             alt="projecto 3"
@@ -304,6 +303,212 @@
         <button type="submit" class="botao-form">Enviar</button>
       </form>
     </section>
+
+    <!-- Modais dos Projetos -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <img src="img/projeto4.png" alt="SmartQuote RCS" class="modal-image">
+        <h2>SmartQuote RCS</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> O SmartQuote RCS é uma aplicação web moderna e responsiva para gestão inteligente de cotações, desenvolvida com tecnologias de ponta. O sistema oferece automação completa do processo de cotações, desde a criação até a aprovação, com integração de IA para busca de produtos e comparação de preços.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>React.js com TypeScript</li>
+            <li>Node.js e Express</li>
+            <li>MongoDB</li>
+            <li>Integração com APIs de IA</li>
+            <li>Styled Components</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>Gestão automatizada de cotações</li>
+            <li>Comparação inteligente de preços</li>
+            <li>Dashboard analytics</li>
+            <li>Sistema de aprovação em fluxo</li>
+            <li>Relatórios detalhados</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <img src="img/projeto5.png" alt="Sistema de Gestão Escolar" class="modal-image">
+        <h2>Sistema de Gestão Escolar</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> Sistema de administração escolar desenvolvido para facilitar a gestão acadêmica, incluindo controle de alunos, turmas, professores e notas. Oferece uma interface intuitiva e funcionalidades que otimizam o fluxo de trabalho da instituição.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>PHP com Laravel</li>
+            <li>MySQL</li>
+            <li>Bootstrap</li>
+            <li>jQuery</li>
+            <li>Chart.js para relatórios</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>Gestão de alunos e professores</li>
+            <li>Controle de turmas e disciplinas</li>
+            <li>Sistema de notas e avaliações</li>
+            <li>Relatórios acadêmicos</li>
+            <li>Comunicação entre escola e pais</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <img src="img/projeto3.png" alt="Sistema de Administração de Igreja" class="modal-image">
+        <h2>Sistema de Administração de Igreja</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> Sistema completo para gestão de igrejas, incluindo controle de membros, eventos, dízimos e ofertas, agenda de cultos e atividades administrativas essenciais para o funcionamento da comunidade religiosa.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>ASP.NET Core</li>
+            <li>SQL Server</li>
+            <li>Entity Framework</li>
+            <li>Bootstrap</li>
+            <li>SignalR para notificações</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>Cadastro e gestão de membros</li>
+            <li>Controle financeiro (dízimos/ofertas)</li>
+            <li>Agenda de eventos e cultos</li>
+            <li>Sistema de grupos e ministérios</li>
+            <li>Relatórios estatísticos</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <img src="img/projeto1.png" alt="Loja de Carros" class="modal-image">
+        <h2>Loja de Carros</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> Plataforma de e-commerce especializada na venda de veículos usados e novos, com sistema completo de pesquisa, filtros avançados, galeria de imagens e funcionalidades de compra online.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>Vue.js</li>
+            <li>Node.js com Express</li>
+            <li>PostgreSQL</li>
+            <li>Stripe para pagamentos</li>
+            <li>Cloudinary para imagens</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>Catálogo de veículos com filtros</li>
+            <li>Galeria de fotos em alta resolução</li>
+            <li>Sistema de favoritos</li>
+            <li>Agendamento de test drive</li>
+            <li>Sistema de pagamento integrado</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <img src="img/projeto2.png" alt="Loja de Mobilias" class="modal-image">
+        <h2>Loja de Mobilias</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> E-commerce completo para venda de móveis e decoração, com visualizador 3D, catálogo extenso e sistema de personalização de produtos para atender diferentes estilos e necessidades.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>Angular</li>
+            <li>Spring Boot (Java)</li>
+            <li>MongoDB</li>
+            <li>Three.js para visualização 3D</li>
+            <li>PayPal SDK</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>Catálogo com visualização 3D</li>
+            <li>Configurador de móveis</li>
+            <li>Sistema de medidas personalizadas</li>
+            <li>Calculadora de frete</li>
+            <li>Programa de fidelidade</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <img src="img/r.png" alt="Sistema de Administração de Igreja" class="modal-image">
+        <h2>Sistema de Administração de Igreja</h2>
+        <div class="modal-body">
+          <p><strong>Descrição:</strong> Sistema alternativo para gestão de comunidades religiosas, focado na simplicidade e eficiência, com módulos específicos para diferentes tipos de igrejas e denominações.</p>
+          
+          <p><strong>Tecnologias utilizadas:</strong></p>
+          <ul>
+            <li>React Native</li>
+            <li>Firebase</li>
+            <li>Node.js</li>
+            <li>Material-UI</li>
+            <li>Push Notifications</li>
+          </ul>
+          
+          <p><strong>Funcionalidades principais:</strong></p>
+          <ul>
+            <li>App mobile para membros</li>
+            <li>Transmissão ao vivo de cultos</li>
+            <li>Sistema de oração e pedidos</li>
+            <li>Biblioteca digital de recursos</li>
+            <li>Rede social interna</li>
+          </ul>
+          
+          <div class="modal-buttons">
+            <a href="#" class="btn-demo" target="_blank">Ver Demo</a>
+            <a href="#" class="btn-code" target="_blank">Ver Código</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       function toggleMenu() {
         const menu = document.getElementById('menu');
@@ -323,6 +528,47 @@
 
         window.open(url, "_blank");
       }
+
+      // Funções para controlar os modais
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden'; // Previne scroll do body
+        }
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Restaura scroll do body
+        }
+      }
+
+      // Fechar modal clicando fora dele
+      window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+          if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        });
+      }
+
+      // Fechar modal com a tecla ESC
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          const modals = document.querySelectorAll('.modal');
+          modals.forEach(modal => {
+            if (modal.style.display === 'block') {
+              modal.style.display = 'none';
+              document.body.style.overflow = 'auto';
+            }
+          });
+        }
+      });
     </script>
   </body>
   <footer class="footer">
